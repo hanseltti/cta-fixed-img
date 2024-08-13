@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    /* Este selector afecta a todos los elementos de la página */
+    *{
+        /* Quita cualquier margen que venga por defecto */
+        margin: 0;
+        /* Quita cualquier relleno (padding) que venga por defecto */
+        padding: 0;
+        /* Asegura que el tamaño de los elementos incluye los bordes y el relleno */
+        box-sizing: border-box;
+        /* Cambia la fuente (letras) de toda la página a Arial o, si no está disponible, usa una fuente sans-serif */
+        font-family: Arial, sans-serif;
+    }
+
+    /* Estilo para un contenedor vacío */
+    .empty-container{
+        /* Coloca un color de fondo suave llamado "aliceblue" */
+        background-color: aliceblue;
+        /* Hace que el contenedor tenga todo el ancho de la página */
+        width: 100%;
+        /* Hace que el contenedor tenga la altura completa de la ventana */
+        height: 100vh;
+        /* Usa un modelo de diseño flexible dentro del contenedor */
+        display: flex;
+        /* Centra el contenido horizontalmente */
+        justify-content: center;
+        /* Centra el contenido verticalmente */
+        align-items: center;
+    }
+
+    /* Estilo para un contenedor de imagen */
+    .cta-container-img{
+        /* Coloca un color de fondo suave llamado "azure" */
+        background-color: azure;
+        /* Hace que el contenedor tenga todo el ancho de la página */
+        width: 100%;
+        /* Hace que el contenedor tenga la mitad de la altura de la ventana */
+        height: 50vh;
+        /* Oculta cualquier contenido que se desborde del contenedor */
+        overflow: hidden;
+        /* Posiciona el contenedor relativo a su posición normal */
+        position: relative;
+        /* Clip-path recorta el contenedor pero aquí no se está recortando nada */
+        -webkit-clip-path: inset(0);
+                clip-path: inset(0);
+    }
+
+    /* Estilo para el contenedor de imagen antes de que se muestre */
+    .cta-container-img:before{
+        /* Crea un contenido vacío que se usará para superponer la imagen */
+        content: '';
+        /* Coloca un fondo negro con un 50% de transparencia encima de la imagen */
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Posiciona este fondo superpuesto de manera absoluta */
+        position: absolute;
+        /* Hace que el fondo cubra todo el contenedor */
+        inset: 0;
+        /* Asegura que esta capa esté por encima de la imagen */
+        z-index: 2;
+    }
+
+    /* Estilo para la imagen dentro del contenedor */
+    .cta-container img{
+        /* Fija la posición de la imagen en la pantalla */
+        position: fixed;
+        /* Coloca la imagen en la parte superior de la página */
+        top: 0;
+        /* Coloca la imagen en el lado izquierdo de la página */
+        left: 0;
+        /* Asegura que la imagen se muestre como un bloque */
+        display: block;
+        /* Hace que la imagen ocupe todo el ancho del contenedor */
+        width: 100%;
+        /* Hace que la imagen ocupe toda la altura del contenedor */
+        height: 100%;
+        /* Asegura que la imagen se ajuste perfectamente al tamaño del contenedor */
+        -o-object-fit: cover;
+            object-fit: cover;
+        /* Coloca la imagen detrás de la capa oscura */
+        z-index: 1;
+        /* Oculta cualquier parte de la imagen que sobresalga del contenedor */
+        overflow: hidden;
+    }
+
+    /* Estilo para el texto dentro del contenedor de llamada a la acción */
+    .cta-container-text{
+        /* Hace que el contenedor ocupe todo el ancho disponible */
+        width: 100%;
+        /* Hace que el contenedor ocupe toda la altura disponible */
+        height: 100%;
+        /* Posiciona este contenedor relativo a su posición normal */
+        position: relative;
+        /* Usa un diseño flexible para organizar el contenido */
+        display: flex;
+        /* Organiza el contenido en una columna (de arriba hacia abajo) */
+        flex-direction: column;
+        /* Centra el contenido horizontalmente */
+        justify-content: center;
+        /* Centra el contenido verticalmente */
+        align-items: center;
+        /* Coloca el texto por encima de la imagen y la capa oscura */
+        z-index: 3;
+    }
+
+    /* Estilo para los encabezados y párrafos dentro del contenedor de texto */
+    .cta-container-text h2, .cta-container-text p{
+        /* Cambia el color del texto a blanco */
+        color: white;
+        /* Agrega un margen en la parte inferior de los textos */
+        margin-bottom: 1rem;
+        /* Asegura que el texto esté centrado */
+        text-align: center;
+    }
+
+    /* Estilo para los enlaces dentro del contenedor de texto */
+    .cta-container-text a{
+        /* Cambia el color del texto a blanco */
+        color: white;
+        /* Agrega un margen en la parte inferior del enlace */
+        margin-bottom: 1rem;
+        /* Elimina el subrayado del enlace */
+        text-decoration: none;
+        /* Agrega un borde blanco alrededor del enlace */
+        border: 1px solid white;
+        /* Agrega un poco de espacio alrededor del texto del enlace */
+        padding: .5rem 1rem;
+        /* Cambia el cursor a una mano cuando se pasa por encima */
+        cursor: pointer;
+        /* Agrega una transición suave cuando se interactúa con el enlace */
+        transition: .2s ease;
+    }
+
+    /* Estilo para cuando el usuario pasa el ratón sobre el enlace */
+    .cta-container-text a:hover{
+        /* Cambia el color de fondo a blanco */
+        background-color: white;
+        /* Cambia el color del texto a negro */
+        color: black;
+        /* Mantiene el borde blanco alrededor del enlace */
+        border: 1px solid white;
+    }
+</style>
+</head>
+<body>
+    <section class="empty-container">
+        <p>Relleno</p>
+    </section>
+
+    <section class="cta-container">
+        <div class="cta-container-img">
+            <img src="austria.jpg" alt="">
+            <div class="cta-container-text">
+                <h2>This is your title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente nemo explicabo minus sint soluta placeat ex sunt dolor! Quidem molestiae velit odio ipsam aut quas?</p>
+                <a href="#">Subscribe</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="empty-container">
+        <p>Relleno</p>
+    </section>
+    
+</body>
+</html>
